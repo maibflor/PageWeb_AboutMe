@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+/*he declarado estas variables para tener simplificado el color estilo de fuentes. Puedo encontrar mas acerca d elas variables en la docuemntacion de CSS*/
+:root {
+    --color-primario: #627254;
+    --color-secundario: #EEEEEE;
+    --color-terciario: #7AB2B2;
+    --color-footer: #DDDDDD;
+
+    --trazo-monserrat: "Montserrat", sans-serif;
+    --trazo-krona: "Krona One", sans-serif;
+}
+
+/*ahora voy a usar los reset css para estandarizar la pagina a distintos navegadores, para decirle que voy a hacer un cambio universal uso * */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*con este se dí color al cuerpo y letras del la pagina*/
+body{
+    /*height: 100vh; este atributo sirve para que el cuerpo de la pagina ocupe tooda la pantalla*/
+    box-sizing: border-box; /*Este atributo es para que los elementos no se desborden de la pantalla*/
+    /*background-color: #000000;*/
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+.header__ {
+    padding: 2% 0% 0% 15%; /*espacio de arriba, abajo derecha e izquierda*/
+}
+
+.header__menu {
+    display: flex;
+    gap: 80px;
+}
+
+.header__link {
+    font-family: var(--trazo-monserrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+/*Se supone que le doy color a mi texto que marque con strong, a todas las etiquetas con strtong se vuelven de ese color*/
+/*strong{
+    color: #22D4FD;
+}*/
+
+/*estoy usando esta clase para alienear mis elemntos en la pagina*/
+.presentacion {
+    /*margin: 10% 15%; margen de la izq y der*/
+    padding: 5% 15%;
+    display: flex;
+    align-items: center; /*aliena los elemntos de acueerdo a el mayor de ellos*/
+    justify-content: space-between;
+    gap: 82px;
+}
+/*esto crea un espaciado dentro de mi seccion*/
+.presentacion__contenido {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+/*para cambiar como esta proporcionado el titulo*/
+.presentacion__contenido__titulo {
+    font-family: var(--trazo-krona);
+    font-size: 2.25rem;
+}
+/*aqui yo voy a usar mi clase del titulo que quiero destacar del html. Cada vez que voy a usar una clase la destaco comienzo con el punto*/
+.titulo__destaque{
+    color: var(--color-terciario);
+}
+/*para cambiar como esta proporcionado el parrafo*/
+.present__cont__parr {
+    font-family: var(--trazo-monserrat);
+    font-size: 1.5rem;
+}
+/*con esto estoy dando formato a los botones*/
+.presentacion__enlace {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.present__enlace__subtitulo {
+    font-family: var(--trazo-krona);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+/*para los links de los botones*/
+.present__link {
+    width: 50%; /*primero estaba en pixeles, luego se le cambio a % para que se vaya ajustando al tamaño de la pagina*/
+    /*background-color: #22D4FD;*/
+    text-align: center;
+    padding: 21.5px 0; /*se puede poner dos valores aqui, el primero es sel horizontal*/
+    border-radius: 8px;
+    font-family: var(--trazo-monserrat);
+    font-size: 1.5rem;
+    font-weight: 600px;
+    text-decoration: none;
+    color: var(--color-secundario);
+    border: 2px var(--color-terciario);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+/*al pasar el cursor por encima del enlace esto adquiere un color*/
+.present__link.present__link:hover {
+    background-color: var(--color-footer);
+}
+
+.present__imagen {
+    width: 50%;
+}
+
+/*estilizo el pie de pagina*/
+.footer__ {
+    background-color: var(--color-terciario);
+    padding: 1.5rem;
+    color: var(--color-primario);
+    text-align: center;
+    font-family: var(--trazo-monserrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+/*con esto hago el ejuste de la pantalla para el modo mobile*/
+@media(max-width: 1200px) {
+    .header__ {
+        padding: 10%;
+    }
+    .header__menu {
+        justify-content: center;
+    }
+    .presentacion {
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+    .presentacion__contenido {
+        width: auto; /*este se va a adaptar al elemento padre*/
+    }
+}
